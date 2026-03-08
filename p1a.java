@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+//Pembuatan objek class mahasiswa dengan atribut private
 class Mahasiswa {
     private String nama;
     private String nim;
@@ -14,7 +15,7 @@ class Mahasiswa {
         this.jurusan = jurusan;
         this.ipk = ipk;
     }
-
+//Getter untuk NIM dikarenakan akan ada pencarian untuk pengubahan IPK
     String getNim(){
         return nim;
     }
@@ -27,7 +28,7 @@ class Mahasiswa {
         System.out.println("Status: " + status);
         System.out.println("predikat: " + predikat + "\n");
     }
-
+//Metode untuk cek kelulusan
     void cekKelulusan(){
         if (ipk >= 3.0){
             status = "Lulus";
@@ -35,7 +36,7 @@ class Mahasiswa {
             status = "Tidak lulus";
         }
     }
-
+//Metode untuk hitung predikat
     void hitungPredikat(){
         if (ipk >= 3.75){
             predikat = "Dengan Pujian";
@@ -47,6 +48,7 @@ class Mahasiswa {
             predikat = "Perlu perbaikan";
         }
     }
+//Metode update ipk
     void updateIpk(double ipkBaru){
         this.ipk = ipkBaru;
         cekKelulusan();
@@ -68,11 +70,14 @@ public class p1a {
                 new Mahasiswa("Joni Suhartono", "2440004", "Teknik Industri", 3.00),
                 new Mahasiswa("Bulan Suci", "2440005", "Akuntansi", 3.20),
         };
+//Menampilkan informasi mengenai data mahasiswa yang sudah terdaftar
         for (int i = 0; i < daftarMahasiswa.length; i++) {
             daftarMahasiswa[i].cekKelulusan();
             daftarMahasiswa[i].hitungPredikat();
             daftarMahasiswa[i].tampilkanInfo();
         }
+//Metode pembaharuan ipk pada mahasiswa dengan melakukan searching nim terlebih dahulu
+//Jika user memasukan input nim yang tidak terdaftar akan langsung diberikan notifikasi
         boolean ditemukan = false;
 
         System.out.println("Masukan Nim mahasiswa yang akan diupdate: ");
@@ -95,7 +100,8 @@ public class p1a {
         for (int i = 0; i < daftarMahasiswa.length; i++) {
             daftarMahasiswa[i].tampilkanInfo();
         }
-
+//Tidak lupa untuk close input setelah scanner digunakan
         input.close();
     }
+
 }
