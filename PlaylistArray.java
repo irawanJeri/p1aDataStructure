@@ -27,7 +27,7 @@ class Lagu {
     }
 }
 
-public class tugasKelompok2 {
+public class PlaylistArray {
     public static void main(String[] args) {
         // Deklarasi array statis dengan kapasitas maksimum 10 lagu
         Lagu[] playlist = new Lagu[10];
